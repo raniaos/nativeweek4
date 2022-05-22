@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -14,8 +15,10 @@ import com.ubaya.advweek4.R
 import java.lang.Exception
 
 @BindingAdapter("android:imageUrl", "android:progressBar")
-fun loadImageFromURL(view: ImageView, url: String, progressBar: ProgressBar) {
-    view.loadImage(url, progressBar)
+fun loadImageFromURL(view: ImageView, url: String?, progressBar: ProgressBar) {
+    if (url != null) {
+        view.loadImage(url!!, progressBar)
+    }
 }
 
 fun ImageView.loadImage(url: String?, progressBar: ProgressBar) {
